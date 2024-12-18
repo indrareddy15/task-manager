@@ -1,12 +1,16 @@
-import "./App.css";
-import TaskManager from "./Components/task";
+import { Container } from "@mui/material";
+import { TaskManager } from "./components/TaskManager";
+import { Nav } from "./components/AppBar";
 
-function App() {
+const App = () => {
   return (
-    <div className="container">
-      <TaskManager />
-    </div>
+    <>
+      <Nav />
+      <Container maxWidth="lg">
+        <TaskManager />
+      </Container>
+    </>
   );
-}
+};
 
 export default App;
