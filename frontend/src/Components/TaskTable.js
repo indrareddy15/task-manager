@@ -84,7 +84,7 @@ const TaskTable = ({
                 <IconButton
                   onClick={() =>
                     onDownloadFile(
-                      new Uint8Array(task.linkedFile.data.data),
+                      new Uint8Array(task.linkedFile.data),
                       task.linkedFile.contentType
                     )
                   }
