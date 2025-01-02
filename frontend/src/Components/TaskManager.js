@@ -43,6 +43,7 @@ export const TaskManager = () => {
   };
 
   const handleDownloadFile = (data, contentType) => {
+    console.log("handleDownloadFile", data);
     const blob = new Blob([data], { type: contentType });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
