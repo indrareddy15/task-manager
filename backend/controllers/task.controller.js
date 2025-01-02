@@ -1,13 +1,19 @@
 const TaskService = require("../services/task.service");
 const taskServiceInstance = new TaskService();
 
-
-const postTask = async (req, res) => {
+const createTask = async (req, res) => {
     try {
         if (!req.body || Object.keys(req.body).length === 0) {
-            return res.status(400).json({ message: "Task Data is required" });
+            return res.status(400).json({ message: "Task data is required" });
         }
-        const newTask = await taskServiceInstance.createTask(req.body);
+
+        const { title, description, deadline } = req.body;
+
+        const linkedFile = req.file
+            ? { data: req.file.buffer, contentType: req.file.mimetype }
+            : null;
+
+        const newTask = await taskServiceInstance.createTask({ title, description, deadline, linkedFile });
         res.status(201).json(newTask);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -50,4 +56,4 @@ const deleteTask = async (req, res) => {
     }
 }
 
-module.exports = { postTask, getAllTasks, updateTask, deleteTask };
+module.exports = { createTask, getAllTasks, updateTask, deleteTask };
