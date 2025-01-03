@@ -32,6 +32,7 @@ export const TaskManager = () => {
   };
 
   const handleDelete = async (taskId) => {
+    console.log("handleDelete", taskId);
     if (window.confirm("Are you sure you want to delete this task?")) {
       try {
         await deleteTask(taskId);
