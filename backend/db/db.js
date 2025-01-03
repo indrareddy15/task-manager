@@ -20,6 +20,10 @@ const connectDB = async () => {
         process.exit(1);
     }
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbdc06536f9919811248310fb06b0fed288eb689
 
 
 module.exports = connectDB;
