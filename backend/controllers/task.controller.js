@@ -46,11 +46,13 @@ const updateTask = async (req, res) => {
 
 const deleteTask = async (req, res) => {
     try {
-        const deletedTask = await taskServiceInstance.deleteTask(req.params.id);
-        if (!deletedTask) {
-            return res.status(404).json({ message: "Task not found" });
-        }
-        res.status(200).json(deletedTask);
+        const { id } = req.params
+        console.log("deleteTask", id)
+        const deletedTask = await taskServiceInstance.deleteTask(id);
+        // if (!deletedTask) {
+        //     return res.status(404).json({ message: "Task not found" });
+        // }
+        res.status(204).json(deletedTask);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
