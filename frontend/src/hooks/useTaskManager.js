@@ -29,6 +29,7 @@ export const useTaskManager = () => {
 
   const handleSave = async (refreshTasks) => {
     const formData = new FormData();
+    console.log("formData", formData);
     formData.append("title", taskData.title);
     formData.append("description", taskData.description);
     formData.append("deadline", taskData.deadline);
