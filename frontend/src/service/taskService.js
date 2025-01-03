@@ -1,8 +1,8 @@
 import axios from "axios";
 
 class TaskService {
-  constructor() {
-    this.apiUrl = "http://localhost:8082/tasks";
+  constructor () {
+    this.apiUrl = "https://task-manager-5xnq.onrender.com/tasks/tasks";
   }
 
   async fetchTasks() {
